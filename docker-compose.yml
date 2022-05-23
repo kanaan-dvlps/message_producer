@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+    producer_backend:
+      build: 
+        context: .
+        dockerfile: ./Dockerfile
+      stop_signal: SIGINT
+      container_name: producer_backend
+      image: producer_backend
+      ports:
+        - "9000:9000"
+      # ? For automatically updating the container (for development only)
+      volumes:
+        - .:/app
+      restart: always
+      networks:
+        - default
+
+    producer_database:
+      image: mongo
+      container_name: producer_db_service
+      ports:
+        - "27017:27017"
+      volumes:
+        - /usr/local/var/mongodb/producer:/data/db
+      restart: unless-stopped
+      networks:
+        - default
+      
+networks:
+  default:
+    name: messaging_system

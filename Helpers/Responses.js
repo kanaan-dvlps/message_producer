@@ -1,0 +1,7 @@
+module.exports = {
+  // * Success Messages
+  MESSAGE_SUCCESSFULLY_SENT: 'MESSAGE_SUCCESSFULLY_SENT',
+
+  // * Error Messages
+  MESSAGE_REJECTED_UNAUTHORIZED: 'MESSAGE_REJECTED_UNAUTHORIZED',
+};
